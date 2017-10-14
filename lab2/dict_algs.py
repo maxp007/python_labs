@@ -26,7 +26,7 @@ darja = {
 emps=[ivan,darja]
 
 for i in emps:
-    for j in i.pop("children"):
-        if j.pop("age")>=18:
-            print(i.pop("name"))
+    for j in i.get("children"):
+        if j.get("age")>=18:
+            print(i.get("name"))
             break;
