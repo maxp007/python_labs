@@ -29,4 +29,4 @@ for i in emps:
     for j in i.get("children"):
         if j.get("age")>=18:
             print(i.get("name"))
-            break;
+            break

@@ -10,7 +10,7 @@ client_object1.execute()
 
 print(client_object1.response_content)
 print("user_id = ", client_object1.user_id)
-input()
+
 
 client_object2 = vk_get_userfriends.VkUserFriends(client_object1.user_id)
 client_object2.execute()
