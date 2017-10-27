@@ -1,0 +1,41 @@
+{% extends 'my_app/base.html' %}
+{% load static %}
+
+{% block title %} My_app {% endblock %}
+{% block head %}
+    <meta charset="UTF-8">
+    <link rel = "icon" type = "image/png" href="{% static 'favicon.png' %}">
+    <link rel = "stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel = "stylesheet" href ="{% static '/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<!--<script src ="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+<div class = "container">
+    <div class="row">
+        <div class = "col-lg-4 col-lg-offset-4">
+            <h2 class = "title">Начальная Страница</h2>
+            <h2 class = "title">{{ server_time }}</h2>
+            <ul>
+            {% for page in pages %}
+            <li><a href = "{% url 'page' page.id %}">{{ page.title }}</a></li>
+            {% empty %}
+            <li>Пустая ссылка</li>
+            {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+</div>
+    <ul>
+        {% for page in pages %}
+            {% include 'my_app/inclpage.html' with element=page %}
+        {% empty %}
+            <li>Пустой список</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
