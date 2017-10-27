@@ -32,7 +32,7 @@ class PageView(View):
         data = {'page': {'id': id}}
         return render(request, 'my_app/page.html', data)
 
-class IncludePage:
+class IncludePage(View):
     def get(self, request):
-        var = "Строка"
+
         return render(request, 'my_app/inclpage.html', locals())
