@@ -1,0 +1,21 @@
+ /*.title
+ {
+     text-align: center;
+     color: blue;
+     font-family: "Segoe UI", sans-serif;
+     border-color:black;
+     border-width: 1px;
+     border-style: solid;
+     background-color: lightcyan ;
+     margin-bottom: 25px;
+     margin-top: 25px;
+ }*/
+.knopka, .forma{
+    margin-bottom: 5px;
+}
+.crumbs{
+    margin-top: 55px;
+    margin-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
