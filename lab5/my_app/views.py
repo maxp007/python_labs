@@ -4,21 +4,20 @@ import datetime
 from django.views import View
 
 def basepage(request):
-    return render(request, "my_app/base.html", locals())
+    return render(request, "my_app/base.html")
 
 def basextend(request):
     colors = {"black": "#000000", "white": "#FFFFFF", "red": "#FF0000", "green": "#00FF00", "blue": "#0000FF"}
-    return render(request, "my_app/basextend.html", locals())
+    return render(request, "my_app/basextend.html", colors)
 
 def testpage(request):
-    pages = [
+    pages =[
              {'title': "Первая страница", "id": 1},
              {'title': "Вторая страница", "id": 2},
              {'title': "Третья страница", "id": 3}
         ]
     server_time = datetime.datetime.now()
-
-    return render(request, "my_app/index.html", locals())
+    return render(request, "my_app/index.html", {'pages': pages, 'server_time': server_time})
 
 def function_view(request):
     return HttpResponse("Response from fucntion view")
@@ -34,5 +33,4 @@ class PageView(View):
 
 class IncludePage(View):
     def get(self, request):
-
-        return render(request, 'my_app/inclpage.html', locals())
+        return render(request, 'my_app/inclpage.html')
