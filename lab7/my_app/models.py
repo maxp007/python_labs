@@ -1,9 +1,8 @@
 
 from django.db import models
 
-
+# TODO Добавить Читабельные названия
 class ComputerModel(models.Model):
-
     class Meta:
         db_table = 'my_app_computer'
     name = models.CharField(max_length=30)
@@ -17,13 +16,16 @@ class CustomerModel(models.Model):
 
     class Meta:
         db_table = 'my_app_customer'
-    name = models.CharField(max_length=64, default='')
+
+    login = models.CharField(max_length=64, default='')
+    secondname = models.CharField(max_length=64, default='')
+    firstname = models.CharField(max_length=64, default='')
     email = models.CharField(max_length=64)
     password = models.CharField(max_length=64)
     computers = models.ManyToManyField(ComputerModel, through='OrderModel')
 
     def __str__(self):
-        return "'name':{}, 'email':{}, 'password':{}".format(self.name, self.email, self.password )
+        return "'login':{}, 'secondname':{}, 'firstname':{}, 'email':{}, 'password':{}".format(self.login, self.secondname, self.firstname, self.email, self.password)
 
 
 class OrderModel(models.Model):
