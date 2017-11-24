@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li >
-                        <a href={% url 'testpage' %}>Главная</a>
+                        <a href={% url 'AuthorizeDjango' %}>Главная</a>
                     </li>
                     <li class="active">
                         <a href={% url 'computers' %}>Товары<span class="sr-only">(current)</span></a>
@@ -67,7 +67,7 @@
     <div class="container">
         <ol class="breadcrumb crumbs">
             <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-            <li> <a href="{% url 'testpage' %}">Главная</a></li>
+            <li> <a href="{% url 'AuthorizeDjango' %}">Главная</a></li>
             <li> <a href="{% url 'computers' %}">Товары</a></li>
             <li class="active">{{ computer.name }}</li>
         </ol>

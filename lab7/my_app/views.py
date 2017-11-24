@@ -1,14 +1,15 @@
-from django.contrib.auth import authenticate
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login as login_user, logout
+from django.shortcuts import render, redirect
 import os
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 import datetime
 from django.views import View
 from my_app.models import ComputerModel, CustomerModel, OrderModel
 from django.db.models import Count
-from lab5.settings import BASE_DIR, MIDDLEWARE
+from lab5.settings import BASE_DIR, MIDDLEWARE, LOGIN_URL
 from .forms import RegisterForm, AuthorizeForm
 from hashlib import md5
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -152,13 +153,13 @@ def AuthorizeDjango(request):
 
             except CustomerModel.DoesNotExist:
                 errors.append("Неправильное имя пользователя или пароль")
-
             if not errors:
-                # user = authenticate(username=login, password=password)
-                # if user:
-                # login(request, user)
-
-                return HttpResponseRedirect("/computers/")
+                user = authenticate(username=login, password=password)
+                if user is not None:
+                    if request.user.is_authenticated():
+                        pass
+                    login_user(request, user)
+                    return HttpResponseRedirect("/computers/")
     print(list(errors))
     return render(request, 'my_app/authorize.html', {"errors": errors, 'names_dict': names_dict, "form": form})
 
@@ -168,13 +169,17 @@ class ComputersClass(View):
         plist = os.listdir(os.path.join(BASE_DIR, "static"))
         computers = ComputerModel.objects.all()
         pics = {el.rsplit('.', 1)[0]: el for el in plist}
+        if not request.user.is_authenticated:
+            return redirect('%s?next=%s' %(LOGIN_URL, request.path) )
         return render(request, 'my_app/computers.html', {'computers': computers, "pics": pics})
 
 
-class LogoutClass(View):
-    def get(self, request):
-        var = request.user.is_authenticated()
-        return render(request, 'my_app/authorize.html')
+
+def LogoutClass(request):
+    var = request.user.is_authenticated()
+    if request.user.is_authenticated():
+        logout(request)
+    return redirect('AuthorizeDjango')
 
 
 # Форма в HTML шаблоне
