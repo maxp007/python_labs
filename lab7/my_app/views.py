@@ -11,6 +11,7 @@ from .forms import RegisterForm, AuthorizeForm
 from hashlib import md5
 
 
+
 def basepage(request):
     return render(request, "my_app/base.html")
 

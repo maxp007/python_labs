@@ -1,15 +1,34 @@
- /*.title
- {
-     text-align: center;
-     color: blue;
-     font-family: "Segoe UI", sans-serif;
-     border-color:black;
-     border-width: 1px;
-     border-style: solid;
-     background-color: lightcyan ;
-     margin-bottom: 25px;
-     margin-top: 25px;
- }*/
+
+.circle-button{
+    line-height: 30px;
+    color: whitesmoke;
+    font-size: 30pt;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: greenyellow;
+    float: left;
+    position: fixed;
+    right: 5%;
+    bottom: 10%;
+    border: solid 2px lime;
+    box-shadow: #666 0px 2px 4px;
+}
+ .circle-button:hover{
+     border-color: greenyellow;
+     text-decoration-color: ghostwhite;
+     background-color: lime;
+     box-shadow: #666 0px 1px 2px;
+
+ }
+ .circle-button:active{
+     border-color: greenyellow;
+     text-decoration-color: ghostwhite;
+     background-color: lime;
+     box-shadow: #666 0px 1px 2px;
+
+ }
 
 .knopka, .forma{
     margin-bottom: 5px;
