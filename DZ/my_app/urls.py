@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from my_app.views import testpage, \
     basepage, basextend, PageView, IncludePage, \
-    ComputersClass, RegisterClass, authorization, RegisterDjango, AuthorizeDjango, LogoutClass
+    ComputersClass, RegisterClass, authorization, RegisterDjango, AuthorizeDjango, LogoutClass, InfiniteScroll
 
 urlpatterns = [
     url(r'^basextend/', basextend, name='basextend'),
@@ -19,4 +19,6 @@ urlpatterns = [
     url(r'register/', RegisterDjango, name="RegisterDjango"),
     url(r'authorize/', AuthorizeDjango, name="AuthorizeDjango"),
     url(r'logout/', LogoutClass, name="LogoutClass"),
+    url(r'scroll/', InfiniteScroll.as_view(), name="InfiniteScroll"),
+
 ]

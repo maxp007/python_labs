@@ -10,7 +10,10 @@ class CustomerAdmin(admin.ModelAdmin):
     search_fields = ['id']
     pass
 
+class OrderAdmin(admin.ModelAdmin):
+    list_filter = ('status', 'computer__id')
+
 
 admin.site.register(CustomerModel, CustomerAdmin)
-admin.site.register(OrderModel)
+admin.site.register(OrderModel, OrderAdmin)
 admin.site.register(ComputerModel)

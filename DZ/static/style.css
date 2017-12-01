@@ -78,3 +78,8 @@ img.center{
     display:block;
     margin: 0 auto;
 }
+.error{
+    padding-left: 5px;
+    font: 12px sans-serif;
+    color: red;
+}
