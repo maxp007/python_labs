@@ -25,11 +25,11 @@ class CustomerModel(models.Model):
     computers = models.ManyToManyField(ComputerModel, through='OrderModel')
 
     def __str__(self):
-        return "id : {}, login:{}, secondname:{}, firstname:{}, email:{}, password:{}".format(self.id, self.login,
+        return "id : {}, login:{}, secondname:{}, firstname:{}, email:{}".format(self.id, self.login,
                                                                                               self.secondname,
                                                                                               self.firstname,
                                                                                               self.email,
-                                                                                              self.password)
+                                                                                              )
 
 
 class OrderModel(models.Model):

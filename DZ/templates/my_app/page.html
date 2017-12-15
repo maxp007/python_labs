@@ -71,18 +71,19 @@
             {% endif %}
 
             <dl class="dl-horizontal">
-                <dt>Unit number:</dt>
+                <dt>Номер компьтера:</dt>
                 <dd>{{ computer.id }}</dd>
 
-                <dt>Unit name:</dt>
+                <dt>Название компьютера:</dt>
                 <dd>{{ computer.name }}</dd>
 
-                <dt>Unit description:</dt>
+                <dt>Описание:</dt>
                 <dd>{{ computer.description }}</dd>
             </dl>
-        </div>
         <button class="btn-info btn" data-toggle="modal" data-target="#ModalOrderItem">Заказать
         </button>
+        </div>
+
         <div id="ModalOrderItem" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">

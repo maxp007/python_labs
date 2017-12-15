@@ -97,7 +97,7 @@
                                  style=" width: 90px; height: 90px; display: inline-block">
                         </div>
                         <div class="modal-footer">
-                            <button id = "AddingModalFormButton" class="btn btn-default"  disabled type="submit">Добавить</button>
+                            <button id = "AddingModalFormButton" class="btn btn-default"   type="submit">Добавить</button>
                             <button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
                         </div>
                     </form>
@@ -147,7 +147,6 @@
             });
             return false;
         });
-
         //Беск. прокрутка
         function LoadContent(page_number) {
             csrf_token = "{{ csrf_token }}";
@@ -196,7 +195,6 @@
                 LoadContent(page_number);
                 page_number++;
             });
-
 
         //Валидация формы добавления объекта
          $(document).ready(
